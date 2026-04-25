@@ -5,3 +5,4 @@ altair
 tensorflow==2.12.0
 vaderSentiment
 joblib
+gdown
