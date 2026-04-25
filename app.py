@@ -14,10 +14,16 @@ import streamlit as st
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+import gdown
+import os
 
+MODEL_PATH = "hybrid_cnn_model.keras"
+
+if not os.path.exists(MODEL_PATH):
+    url = "https://drive.google.com/file/d/1jB2EHM4j0qn4Rj16BpVQ8Ycl9ss3QdSX/view?usp=sharing"
+    gdown.download(url, MODEL_PATH, quiet=False)
 
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR / "hybrid_cnn_model.keras"
 TOKENIZER_PATH = BASE_DIR / "tokenizer.pkl"
 CONFIG_PATH = BASE_DIR / "config.pkl"
 SCALER_PATH = BASE_DIR / "scaler.pkl"
